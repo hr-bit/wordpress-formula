@@ -16,8 +16,8 @@ include:
     - require:
       - mysql_database: {{ id }}-setupdb
   mysql_grants.present:
-    - grant: all
-    - database: {{ site.get('database') }}.*
+    - grant: all privileges
+    - database: "{{ site.get('database') }}.*"
     - user: {{ site.get('dbuser') }}
     - host: localhost
     - require:
