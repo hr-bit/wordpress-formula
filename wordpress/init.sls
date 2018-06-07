@@ -12,7 +12,7 @@ include:
       - service: mysql
   mysql_user.present:
     - name: {{ site.get('dbuser') }}
-    - password: {{ site.get('dbpass')) }}
+    - password: {{ site.get('dbpass') }}
     - require:
       - mysql_database: {{ id }}-setupdb
   mysql_grants.present:
