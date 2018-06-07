@@ -17,8 +17,8 @@ download_wordpress_{{ id }}:
   - cwd: {{ map.docroot }}/{{ id }}
   - name: '/usr/local/bin/wp core download --path="{{ map.docroot }}/{{ id }}/"'
   - runas: {{ map.www_user }}
-  - unless: test -f {{ map.docroot }}/{{ id }}/wp-config.php
-
+  - unless: test -f {{ map.docroot }}/{{ id }}/wp-includes/version.php
+  
 # This command tells wp-cli to create our wp-config.php, DB info needs to be the same as above
 configure_{{ id }}:
  cmd.run:
