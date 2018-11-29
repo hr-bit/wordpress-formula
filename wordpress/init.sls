@@ -22,6 +22,7 @@ include:
     - host: localhost
     - require:
       - mysql_user: {{ id }}-setupdb
+    - unless: mysql -u{{ site.get('dbuser') }} -p{{ site.get('dbpass') }} -e"use {{ site.get('database') }}"
 
 {{ map.docroot }}/{{ id }}:
   file.directory:
