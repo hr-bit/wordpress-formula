@@ -15,6 +15,7 @@ include:
     - password: {{ site.get('dbpass') }}
     - require:
       - mysql_database: {{ id }}-setupdb
+    - unless: mysql -u{{ site.get('dbuser') }} -p{{ site.get('dbpass') }} -e"show databases"
   mysql_grants.present:
     - grant: all privileges
     - database: "{{ site.get('database') }}.*"
